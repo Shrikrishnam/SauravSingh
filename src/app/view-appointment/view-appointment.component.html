@@ -1,0 +1,64 @@
+<div class="container">
+	<h2>All Appointments</h2>
+	<hr>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col" class="h1">Sl NO</th>
+					<th scope="col" class="h2">Name</th>
+					<th scope="col" class="h3">Address</th>
+					<th scope="col" class="h4">City</th>
+					<th scope="col" class="h5">Package</th>
+					<th scope="col" class="h6">Trainer Preference</th>
+					<th scope="col" class="h7 font-weight-noraml">Phone</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr  *ngFor="let i of allAppointments">
+					<th scope="row" type="button" data-toggle="modal" data-target="#dataModal" class="btn btn-link" (click)="getSpecific(i)">{{i.id}}</th>
+					<td>{{i.firstname+i.lastname}}</td>
+					<td>{{i.streetaddress}}</td>
+					<td>{{i.city}}</td>
+					<td>{{i.packages}}</td>
+					<td>{{i.trainerpreference}}</td>
+					<td>{{i.phonenumber}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="dataModal" tabindex="-1" role="dialog" aria-labelledby="dataModalLabel" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="dataModalLabel">{{details.id}}</h5>
+				<button class="btn btn-warning ml-2" [routerLink]="['/place-fitness-trainer-appointment', details.id]"  data-dismiss="modal">Edit</button>
+				<button class="btn btn-danger ml-2">Delete</button>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+			</div>
+			<div class="modal-body">
+				<p><span class="font-weight-bolder">First Name: </span>{{details.firstname}}</p>
+				<p><span class="font-weight-bolder">Last Name: </span>{{details.lastname}}</p>
+				<p><span class="font-weight-bolder">Age: </span>{{details.age}}</p>
+				<p><span class="font-weight-bolder">Email: </span>{{details.email}}</p>
+				<p><span class="font-weight-bolder">Phone: </span>{{details.phonenumber}}</p>
+				<p><span class="font-weight-bolder">Street Address: </span>{{details.streetaddress}}</p>
+				<p><span class="font-weight-bolder">City: </span>{{details.city}}</p>
+				<p><span class="font-weight-bolder">State: </span> {{details.state}}</p>
+				<p><span class="font-weight-bolder">Country: </span>{{details.country}}</p>
+				<p><span class="font-weight-bolder">Pincode: </span>{{details.pincode}}</p>
+				<p><span class="font-weight-bolder">Trainer Preference: </span>{{details.trainerpreference}}</p>
+				<p><span class="font-weight-bolder">Physiotherapist:</span> {{details.physiotherapist}}</p>
+				<p><span class="font-weight-bolder">Packages: </span>{{details.packages}}</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,143 @@
+
+<form [formGroup]="fitnessForm" (ngSubmit)="onSubmit()" novalidate>
+	<h2 *ngIf="!editMode" class="text-center mb-3">Appointment Form</h2>
+	<h2 *ngIf="editMode" class="text-center mb-3">Edit Appointment Form</h2>
+    <hr>
+    <h4 class="mt-3">Personal Info</h4>
+		<div class="row border-bottom">
+            <div class="form-group col-md-6">
+                <label for="exampleInputfirstname">First Name</label>
+                <input type="text" class="form-control" formControlName="firstname" placeholder="First Name" #firstname>
+                <small class="form-text text-muted"
+                    *ngIf="fitnessForm.controls.firstname.touched && fitnessForm.controls.firstname.invalid">
+                    Please enter first name.!
+                </small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="exampleInputlastname">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+                <small class="form-text text-muted"
+                    *ngIf="fitnessForm.controls.lastname.touched && fitnessForm.controls.lastname.invalid">
+                    Please enter last name.!
+                </small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="exampleInputphonenumber">Phone Number</label>
+                <input type="text" class="form-control" formControlName="phonenumber" placeholder="Phone Number">
+                <small class="form-text text-muted"
+                *ngIf="fitnessForm.controls.phonenumber.touched && fitnessForm.controls.phonenumber.invalid">
+                Please enter valid 10 digit phone number.!
+            </small>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label for="exampleInputemail">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                <small class="form-text text-muted"
+                    *ngIf="fitnessForm.controls.email.touched && fitnessForm.controls.email.invalid">
+                    Enter the valid email .!
+                </small>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="exampleInputmessage">Age</label>
+                <input type="number" class="form-control" formControlName="age" placeholder="Age">
+                <small class="form-text text-muted"
+                    *ngIf="fitnessForm.controls.age.touched && fitnessForm.controls.age.invalid">
+                    Please enter age.!
+                </small>
+            </div>
+        </div> 
+        <h4 class="mt-3">Address</h4>
+            <div class="row border-bottom">
+                <div class="form-group col-md-6">
+                    <label for="exampleInputmessage">Street</label>
+                    <input type="text" class="form-control" formControlName="streetaddress" placeholder="Street Address">
+                    <small class="form-text text-muted"
+                        *ngIf="fitnessForm.controls.streetaddress.touched && fitnessForm.controls.streetaddress.invalid">
+                        Please enter street.!
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputmessage">City</label>
+                    <input type="text" class="form-control" formControlName="city" placeholder="City">
+                    <small class="form-text text-muted"
+                        *ngIf="fitnessForm.controls.city.touched && fitnessForm.controls.city.invalid">
+                        Please enter city.!
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputmessage">State</label>
+                    <input type="text" class="form-control" formControlName="state" placeholder="State">
+                    <small class="form-text text-muted"
+                        *ngIf="fitnessForm.controls.state.touched && fitnessForm.controls.state.invalid">
+                        Please enter state.!
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputmessage">Country</label>
+                    <input type="text" class="form-control" formControlName="country" placeholder="Country">
+                    <small class="form-text text-muted"
+                        *ngIf="fitnessForm.controls.country.touched && fitnessForm.controls.country.invalid">
+                        Please enter country.!
+                    </small>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="exampleInputmessage">Pincode</label>
+                    <input type="text" class="form-control" formControlName="pincode" placeholder="Pin Code">
+                    <small class="form-text text-muted"
+                        *ngIf="fitnessForm.controls.pincode.touched && fitnessForm.controls.pincode.invalid">
+                        Please enter pincode.!
+                    </small>
+                </div>
+            </div>
+
+            <h4 class="mt-3">Preferences</h4>
+            <div class="row border-bottom">
+                <div class="form-group col-md-4">
+                        <label for="exampleInputmessage">Trainer Preference</label>
+                        <input type="text" class="form-control" formControlName="trainerpreference" placeholder="Trainer Preference">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.trainerpreference.touched && fitnessForm.controls.trainerpreference.invalid">
+                            Please enter trainer preference.!
+                        </small>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="exampleInputmessage">Physiotherapist</label>
+                        <input type="text" class="form-control" formControlName="physiotherapist" placeholder="Physiotherapist">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.physiotherapist.touched && fitnessForm.controls.physiotherapist.physiotherapist?.required">
+                            Please enter physiotherapist.!
+                        </small>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="exampleInputmessage">Packages</label>
+                        <input type="text" class="form-control" formControlName="packages" placeholder="Package">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.packages.touched && fitnessForm.controls.packages.invalid">
+                            Please enter package.!
+                        </small>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="exampleInputmessage">INR</label>
+                        <input type="text" class="form-control" formControlName="inr" placeholder="INR">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.inr.touched && fitnessForm.controls.inr.invalid">
+                            Please enter INR.!
+                        </small>
+                </div>
+                <div class="form-group col-md-4">
+                        <label for="exampleInputmessage">Paisa</label>
+                        <input type="text" class="form-control" formControlName="paisa" placeholder="Paisa">
+                        <small class="form-text text-muted"
+                            *ngIf="fitnessForm.controls.paisa.touched && fitnessForm.controls.paisa.invalid">
+                            Please enter paisa.!
+                        </small>
+                </div>
+            </div>
+
+
+	<button type="submit" class="btn btn-block btn-dark mt-3" >Submit</button>
+
+</form>
